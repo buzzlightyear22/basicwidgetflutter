@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:widget_basic_project/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MaterialApp(
+    home: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -31,6 +34,7 @@ class MyApp extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: TextField(
+                  obscureText: true,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(), hintText: "Password"),
                 ),
@@ -41,7 +45,12 @@ class MyApp extends StatelessWidget {
                     Text("Remember Me"),
                     Text("Forgot Password"),
                   ]),
-              ElevatedButton(onPressed: () {}, child: const Text("Login")),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const Home()));
+                  },
+                  child: const Text("Login")),
             ],
           ),
         ),
